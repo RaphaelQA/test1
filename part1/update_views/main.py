@@ -10,6 +10,8 @@
 # Response: { <guide_json> }
 #
 #
+import json
+
 from flask import Flask
 from sqlalchemy import text
 from flask_sqlalchemy import SQLAlchemy
@@ -40,13 +42,19 @@ class Guide(db.Model):
 @app.route("/guides")
 def get_guides():
     # TODO допишите представления
-    pass
+    guide_all = Guide.query.all()
+    guide_response = []
+    for i in guide_all:
+        guide_response.append(i)
+    return json.dumps(guide_response)
 
 
 @app.route("/guides/<int:gid>")
 def get_guide(gid):
     # TODO допишите представления
-    pass
+    guide_id = Guide.query.get(gid)
+    return json.dumps(guide_id)
+
 
 # чтобы увидеть результат работы функций
 # запустите фаил и
