@@ -38,8 +38,16 @@ class User(db.Model):
 db.create_all()
 
 # TODO напишите здесь код с запросом на добавление
-# строк в таблицу
-#
+user_1 = User(id=1, email="novlu@mail.com", password="mkdXjIjYM", full_name="Людмила Новикова", city_ru="Санкт-Петербург")
+user_2 = User(id=2, email="tripper678@yahhaa.com", password="eGGPtRKS5", full_name="Андрей Васечкин", city_ru="Москва")
+user_3 = User(id=3, email="georgiberidze@mail.com", password="NWRV0Z9ZC", full_name="Георги Беридзе", city_ru="Тбилиси")
+user_4 = User(id=4, email="oksi.laslas89@mail.com", password="TenhtQOjv", full_name="Оксана Ласкина", city_ru="Казань")
+user_5 = User(id=5, email="vanyahot888@inmail.com", password="5YGRPtYlw", full_name="Иван Горячий", city_ru="Сочи")
+
+users =[user_1, user_2, user_3, user_4, user_5]
+db.session.add_all(users)
+db.session.commit()
+
 # Не удаляйте код ниже, он нужен для корректного отображения
 # созданной вами модели при запуске файла
 

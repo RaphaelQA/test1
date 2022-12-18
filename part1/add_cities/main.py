@@ -32,8 +32,18 @@ class City(db.Model):
     country_ru = db.Column(db.String)
     population = db.Column(db.Integer)
 
-
 db.create_all()
+
+city_1 = City(id=1, name="Рим", country_ru="Италия", population="28730000")
+city_2 = City(id=2, name="Милан", country_ru="Италия", population="1333000")
+city_3 = City(id=3, name="Венеция", country_ru="Италия", population="265000")
+city_4 = City(id=4, name="Стамбул", country_ru="Турция", population="108950000")
+city_5 = City(id=5, name="Кемер", country_ru="Турция", population="22421")
+
+italian = [city_1, city_2, city_3, city_4, city_5]
+
+db.session.add_all(italian)
+db.session.commit()
 
 # TODO напишите здесь код с запросом на добавление
 # строк в таблицу

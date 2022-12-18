@@ -29,14 +29,17 @@ class User(db.Model):
     city_ru = db.Column(db.String)
 
 
+db.create_all()
+
+
 def get_all():
     # TODO напишите функцию здесь
-    pass
+    return User.query.all()
 
 
 def get_one(id):
     # TODO напишите функцию здесь
-    pass
+    return User.query.get(id)
 
 
 # не удаляйте код ниже, он используется для вывода на экран

@@ -21,6 +21,21 @@ db = SQLAlchemy(app)
 
 class City(db.Model):
     __tablename__ = 'city'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text)
+    country_ru = db.Column(db.Text)
+    population = db.Column(db.Integer)
+
+db.create_all()
+
+city_rym = City(id=1, name="Рим", country_ru="Италия", population="2873000")
+city_milan = City(id=2, name="Милан", country_ru="Италия", population="1333000")
+city_venice = City(id=3, name="Венеция", country_ru="Италия", population="265000")
+
+italian = [city_rym, city_milan, city_venice]
+
+db.session.add_all(italian)
+db.session.commit()
     # TODO определите поля модели здесь
 
 
